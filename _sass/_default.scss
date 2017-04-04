@@ -5,7 +5,11 @@
   height: 100%;
 
   &__content {
-    width: 80%;
+    width: 100%;
     padding: 20px 60px;
+
+    @include desktop {
+      width: 80%;
+    }
   }
 }

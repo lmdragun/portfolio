@@ -12,11 +12,15 @@
 
     &__title {
       background-color: $purple-light;
-      font-size: $text-md;
+      font-size: 1rem;
       padding: 6px;
+
+      @include desktop {
+        font-size: $text-md;
+      }
     }
     &__links {
-      list-style: none;
+
     }
     &__link {
       display: inline-block;
