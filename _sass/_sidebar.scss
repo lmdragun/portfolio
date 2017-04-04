@@ -1,0 +1,63 @@
+
+.sidebar {
+  color: $purple;
+  background-color: $grey-light;
+  width: 15%;
+  height: 100%;
+  // display: none;
+  // visibility: hidden;
+
+  // @include breakpoint($bp-md) {
+  //   display: inline-block;
+  //   visibility: visible;
+  //   width: 150px;
+  // }
+  //
+  // @include breakpoint($bp-lg) {
+  //   width: 200px;
+  // }
+}
+
+.sidebar__banner {
+  position: relative;
+  padding: 10px;
+  height: 30px;
+  color: $white;
+  background-color: $purple-light;
+  font-size: $text-md;
+  font-weight: $bold;
+  margin: 20px -30px 20px 0;
+  z-index: 1;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $white;
+    width: 15px;
+    height: 15px;
+    top: 100%;
+    right: 15px;
+  }
+
+  &:after {
+    content: '';
+    width: 0;
+    border: 15px solid;
+    border-color: $black transparent transparent transparent;
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: -1;
+
+  }
+
+  // @include breakpoint($bp-md) {
+  //   width: 170px;
+  // }
+  //
+  // @include breakpoint($bp-lg) {
+  //   width: 220px;
+  // }
+}
