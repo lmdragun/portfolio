@@ -1,0 +1,40 @@
+.contact {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-left: $space-sex;
+
+    @include desktop {
+      width: 40%;
+    }
+
+    label {
+      font-size: .9rem;
+      font-weight: $semi-bold;
+      margin-top: $space;
+    }
+  }
+
+  &__message {
+    height: 100px;
+  }
+
+  &__submit {
+    width: 80px;
+    height: 30px;
+    margin-top: $space;
+    font-size: 1.2rem;
+    color: $white;
+    background-color: $purple-dark;
+    border: 0;
+
+    &:active {
+      background-color: $purple;
+    }
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
