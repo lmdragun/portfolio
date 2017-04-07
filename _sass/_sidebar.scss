@@ -6,10 +6,28 @@
   height: 100%;
   display: none;
   visibility: hidden;
+  padding-top: $space-sex;
 
   @include desktop {
     display: inline-block;
     visibility: visible;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: $purple;
+
+    &:visited {
+      color: $purple;
+    }
+
+    &:focus,
+    &:hover {
+      color: $purple-light;
+    }
   }
 
   &__banner {
@@ -20,15 +38,15 @@
     background-color: $purple-light;
     font-size: $text-md;
     font-weight: $bold;
-    margin: 20px -30px 20px 0;
+    margin: 20px -30px 20px $space;
     z-index: 1;
-    width: 215px;
+    width: 206px;
 
     &:before {
       content: '';
       display: block;
       position: absolute;
-      background-color: $white;
+      background-color: $grey-light;
       width: 15px;
       height: 15px;
       top: 100%;
@@ -49,17 +67,12 @@
     }
   }
 
-  &__link {
-
+  &__links {
+    padding-left: $space-quad;
   }
 
-  // @include breakpoint($bp-md) {
-  //   display: inline-block;
-  //   visibility: visible;
-  //   width: 150px;
-  // }
-  //
-  // @include breakpoint($bp-lg) {
-  //   width: 200px;
-  // }
+  &__link {
+    font-size: .9rem;
+    font-weight: $semi-bold;
+  }
 }
