@@ -5,6 +5,14 @@
   background-color: $black;
   color: $white;
 
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: $white;
+  }
+
   &-nav {
     display: flex;
     flex-direction: row;
@@ -13,18 +21,18 @@
     &__title {
       background-color: $purple-light;
       font-size: 1rem;
-      padding: 6px;
+      padding: $space;
 
       @include desktop {
         font-size: $text-md;
       }
     }
     &__links {
-
+      padding-right: $space-double;
     }
     &__link {
       display: inline-block;
-      padding: 0 6px 6px 6px;
+      padding: 0 $space $space $space;
     }
   }
 }

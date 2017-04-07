@@ -6,10 +6,30 @@
 
   &__content {
     width: 100%;
-    padding: 20px 60px;
+    padding: $space-triple $space-sex;
 
     @include desktop {
       width: 80%;
+    }
+
+    a {
+      color: $purple-light;
+      font-weight: $semi-bold;
+    }
+  }
+
+  .blurb {
+    padding: 0 $space-triple;
+
+
+    @include desktop {
+      padding: 0 $space-sex;
+      margin: $space-quad $space-triple;
+      border: 1px solid $grey;
+
+      p {
+        padding: $space $space-triple;
+      }
     }
   }
 }
