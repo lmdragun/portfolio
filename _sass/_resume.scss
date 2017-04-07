@@ -1,0 +1,80 @@
+.resume {
+  &__content {
+    padding: $space $space-quint;
+
+    a {
+      color: $purple-light;
+      font-weight: $semi-bold;
+    }
+
+    h2,
+    h4 {
+      margin: $space 0;
+    }
+
+    h1 {
+      font-size: $text-lg;
+      color: $purple-dark;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: $semi-bold;
+      margin-left: $space;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      border-bottom: 1px solid $purple-light;
+      width: 50%;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      margin-top: $space-double;
+    }
+
+    h5 {
+      font-weight: $light;
+      margin: 0 0 $space 0;
+      font-size: .9rem;
+    }
+
+    .contact {
+      li {
+        display: inline-block;
+        padding: 0 $space-quad $space-quad 0;
+      }
+    }
+
+    .job__bullets {
+      margin: $space-half;
+      list-style-type: square;
+    }
+  }
+
+  &__experience {
+    margin-top: 0;
+  }
+
+  &__education {
+    margin-top: $space-triple;
+  }
+
+  &__tech {
+    &--list {
+      width: 40%;
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: stretch;
+
+      li {
+        padding: $space $space-double;
+      }
+    }
+  }
+
+}
