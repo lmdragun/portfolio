@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-{% include head.html %}
-
+{% include port_head.html %}
 <body>
+  {% include base.html %}
   {% include header.html %}
-  <main class="portfolio">
-    <article class="portfolio__content">
+  <main class="main portfolio">
+    <article class="main__content portfolio__content">
       {{ content }}
     </article>
     {% include sidebar.html %}

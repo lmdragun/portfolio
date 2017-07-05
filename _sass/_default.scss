@@ -20,8 +20,17 @@
 
   .blurb {
     padding: 0 $space-triple;
+    margin: $space-quad 0 100px 0;
 
+    &__about {
+      display: flex;
+      flex-direction: column;
+    }
 
+    .profile-image {
+      visibility: hidden;
+      display: none;
+    }
     @include desktop {
       padding: 0 $space-sex;
       margin: $space-quad $space-triple;
@@ -29,6 +38,29 @@
 
       p {
         padding: $space $space-triple;
+      }
+
+      &__about {
+        flex-direction:row;
+      }
+
+      .profile-image {
+        visibility: visible;
+        display: inline;
+        margin-top: $space;
+        height: 150px;
+      }
+    }
+
+    &__confs {
+      margin-top: $space-triple;
+
+      &--header {
+        font-weight: $semi-bold;
+      }
+
+      &--title {
+        font-weight: $bold;
       }
     }
   }

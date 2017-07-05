@@ -1,0 +1,40 @@
+.portfolio__content {
+  display: inline-block;
+}
+
+.project {
+  margin-bottom: $space;
+
+  &__title {
+    font-size: $text-md;
+    font-variant: small-caps;
+  }
+
+  &__tech {
+    font-size: $text-md;
+    font-weight: $light;
+  }
+
+  .user-stories {
+    li {
+      display: block;
+      min-height: 120px;
+      margin: $space-half;
+      padding: $space;
+      background: $grey;
+      vertical-align: bottom;
+
+      @include tablet {
+        display: inline-block;
+        max-width: 20%;
+      }
+    }
+  }
+
+  .survey {
+    &__image {
+      margin-left: $space-double;
+      max-width: 600px;
+    }
+  }
+}

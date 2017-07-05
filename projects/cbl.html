@@ -2,20 +2,55 @@
 layout: portfolio
 title: comic book library
 ---
+<article class="project">
+  <h1 class="project__title">Comic Book Library</h1>
+  <h2 class="project__tech">Technologies used: Ruby on Rails, Active Record, Postgresql, HTML, CSS, jQuery, Javascript.</h2>
+  <ul class="project__links">
+    <li><a href="https://github.com/lmdragun/comicbooklibrary">Github Repo</a></li>
+    <li><a href="https://comicbooklibrary.herokuapp.com/">Heroku App</a></li>
+  </ul>
 
-<h1>Comic Book Library</h1>
-<h2>Ruby on Rails</h2>
-<h3>Technologies used: Ruby on Rails, Active Record, Postgresql, HTML, CSS, jQuery, Javascript.</h3>
-<ul class="project__links">
-  <li><a href="https://github.com/lmdragun/comicbooklibrary">Github Repo</a></li>
-  <li><a href="https://comicbooklibrary.herokuapp.com/">Heroku App</a></li>
-</ul>
+  <div class="project__main">
+    <p class="project__description">A full-stack app designed to catalogue a user's comic books and track their lending, largely completed in a one-week period. A social feature using self-referential associations allows for following other users. Rail's has_secure_method ensures that users can safely login using hashed passwords.</p>
+    <div class="user-stories">
+      <h3 class="project__section">Example User Stories:</h3>
+      <p>These breakdown tasks to make it easier to focus on individual aspects of an app. Separated into "Current" (what I knew I could finish), "Backlog" (what I hoped to get to), and "Icebox" (which I would have to work on after the project ended). I finished all of my Current and most of my Backlog. These are a few of the stories I created. <a href="https://trello.com/b/RH5A8Nyp/comic-book-library">View them on Trello.</a></p>
+      <h4 class="user-stories__type">Current</h4>
+      <ul>
+        <li>As a user, when I sign up, I create an account for the app.</li>
+        <li>As a user, when I fill in the new comic form, I create a new comic entry.</li>
+        <li>As a user, when I login, I am logged into the app.</li>
+        <li>As a user, when I click to follow another user, they are added to my follows.</li>
+      </ul>
+      <h4 class="user-stories__type">Backlog</h4>
+      <ul>
+        <li>As a user, when I update a comic's lending status, I can say who currently has it.</li>
+        <li> As a user, when I view my comics, I can see which ones I have lent out.</li>
+        <li>As a user, after I add an issue, I can edit some of the information</li>
+      </ul>
+      <h4 class="user-stories__type">Ice Box</h4>
+      <ul>
+        <li>As a user, when I start putting in a comic, the forms aurocomplete</li>
+        <li>As a user, when I search for comics, I get every possible comic.</li>
+      </ul>
+    </div>
 
-<article class="project__description">
-  <p>A full-stack app designed to catalogue a user's comic books and track their lending, largely completed in a one-week period. A social feature using self-referential associations allows for following other users. Rail's has_secure_method ensures that users can safely login using hashed passwords.</p>
-  <p>
-    {% highlight ruby linenos %}
+    <div class="survey">
+      <h3 class="project__section">The Survey</h3>
+      <p>After deciding on a topic, I created a survey to help me decide on which aspects of the app to focus on. With only a week to work on the project, the 24 respondents seemed enough for a general look into user desires. Here are a few of the results that I used.</p>
+      <img src="{{base}}/images/survey-loaning.png" alt="Survey with the question: If you loan a comic to another user, you can keep track of who you loaned it to and how long it's been out. How likely are you to use this feature?" class="survey__image">
+      <p>These results showed me that the main thrust of my app--loaning out comics--was of interest, with an average interest of 7.63 out of 10. In fact, two people said they wouldn't use the app to keep track of their library, but would use it for loan tracking.</p>
+      <img src="{{base}}/images/survey-follow.png" alt="Survey with the question: Would you follow other users in the app? Potential reasons: See their recent activity, have access to more information if you're mutual followers, or send them messages" class="survey__image">
+      <p>This showed me there would be an interest in following other users, with 75% of respondents saying 'yes', so while I knew I couldn't yet include a message system or similar, I created the following method as a placeholder.</p>
+      <img src="{{base}}/images/survey-sorting.png" alt="Survey with the question: How would you like to display comics?" class="survey__image">
+      <p>I had originally been considering options for how to sort the comics--allowing people to sort by series, company, writer, etc. This survey result allowed me to put my time on another part of the app instead of working on a feature that users weren't interested in, as the overwhelming majority (79%) wanted sorting by Series.</p>
+    </div>
 
-    {% endhighlight %}
-  </p>
+    <p>
+      {% highlight ruby linenos %}
+
+      {% endhighlight %}
+    </p>
+
+  </div>
 </article>

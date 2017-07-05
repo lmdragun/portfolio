@@ -17,7 +17,7 @@ title: Portfolio
 email: lmdragun@gmail.com
 description: >
   Lindsey Dragun's portfolio site.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/"
 url: "http://lmdragun.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lmdragun
 github_username:  lmdragun
@@ -30,6 +30,7 @@ kramdown:
   input: GFM
 gems:
   - jekyll-feed
+  - jekyll-relative-links
 include: ['_pages']
 exclude:
   - Gemfile

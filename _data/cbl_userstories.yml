@@ -1,0 +1,16 @@
+# - id: current
+#     stories:
+#     - story: As a user, when I sign up, I create an account for the app.
+#     - story: As a user, when I fill in the new comic form, I create a new comic entry.
+#     - story: As a user, when I login, I am logged into the app.
+#     - story: As a user, when I click to follow another user, they are added to my follows.
+# -id: backlog
+#   stories:
+#     - story: As a user, when I update a comic's lending status, I can say who currently has it.
+#     - story: As a user, when I view my comics, I can see which ones I have lent out.
+#     - story: As a user, after I add an issue, I can edit some of the information.
+# -id: icebox
+#   stories:
+#     - story: As a user, when I start putting in a comic, the forms aurocomplete.
+#     - story: As a user, when I search for comics, I get every possible comic.
+# #
