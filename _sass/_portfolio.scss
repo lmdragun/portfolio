@@ -15,6 +15,27 @@
     font-weight: $light;
   }
 
+  &__gif {
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+    color: $grey-light;
+
+    button {
+      margin-bottom: $space;
+      padding: $space;
+      border: 0;
+      font-size: $text-sm;
+      color: $grey-light;
+      background-color: $purple-dark;
+    }
+
+    &--static,
+    &--moving {
+      max-width: 600px;
+    }
+  }
+
   .user-stories {
     li {
       display: block;

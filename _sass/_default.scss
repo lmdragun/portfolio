@@ -65,3 +65,12 @@
     }
   }
 }
+
+.is-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.bold {
+  font-weight: $bold;
+}

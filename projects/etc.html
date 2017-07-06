@@ -13,6 +13,12 @@ title: escape the call
     <div class="project__description">
       <p>Many people are familiar with the phenomenon of the relative who is impossible to get off the phone with--in my case, it tends to be my mother (and don't worry, she's well aware). At the time I was coming up with this project, Cookie Collector was a big hit, so I decided to create a browser-based game along the same lines, designed to entertain the player and demonstrate Javascript capabilities. This also includes a retro 90s design of completely hand-rolled CSS.</p>
     </div>
+    <div class="project__gif">
+      <button>click to start/stop animation</button>
+      <img src="{{base}}/images/etc-gif-static.png" alt="A playthrough of Escape the Call" class="project__gif--static">
+      <img src="{{base}}/images/etc-gif.gif" alt="Gif of a playthrough of Escape the Call" class="project__gif--moving is-hidden">
+    </div>
+
     <div class="user-stories">
       <h3 class="project__section">Example User Stories:</h3>
       <p>These breakdown tasks to make it easier to focus on individual aspects of an app. Separated into "Current" (what I knew I could finish), "Backlog" (what I hoped to get to), and "Icebox" (which I would have to work on after the project ended). These are a few of the stories I created.</p>
@@ -37,3 +43,4 @@ title: escape the call
     </div>
   </div>
 </article>
+<script>{% include gif-swap.js %}</script>
