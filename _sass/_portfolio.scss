@@ -1,5 +1,14 @@
-.portfolio__content {
-  display: inline-block;
+.portfolio {
+  &__list {
+    li {
+      list-style: none;
+      margin-top: $space-quad;
+    }
+  }
+
+  &__content {
+    display: inline-block;
+  }
 }
 
 .project {

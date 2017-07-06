@@ -7,7 +7,7 @@ title: Portfolio
   <ul>
     {% for project in site.data.projects %}
       <li>
-        <a href="{{project.url}}">{{project.title}}</a>
+        <a href="{{project.url}}">{{project.title}}</a> - {{project.description}}
       </li>
     {% endfor %}
   </ul>

@@ -1,6 +1,6 @@
 - id: cbl
   title: Comic Book Library
-  description: A Rails project experimenting with hand-rolling logins and social interactions in a relational database, allowing for people to list their comics and friend others (and keep track of the comics they loan to friends).
+  description: Ruby on Rails relational database experiment of a lending library for comic fans
   url: /projects/cbl.html
 - id: etc
   title: Escape the Call
