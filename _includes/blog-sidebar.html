@@ -1,0 +1,37 @@
+{% include base.html %}
+<aside class="sidebar">
+  <div class="sidebar__main">
+    <div class="sidebar__banner">
+      <span>Personal</span>
+    </div>
+    <ul class="sidebar__links">
+      <li class="sidebar__link"><a href="{{base}}/portfolio.html">Portfolio</a></li>
+      <li class="sidebar__link"><a href="{{base}}/speaking.html">Speaking</a></li>
+      <li class="sidebar__link"><a href="http://lindsey.international">Old Blog</a></li>
+      <li class="sidebar__link"><a href="https://www.linkedin.com/in/ldragun">LinkedIn</a></li>
+    </ul>
+  </div>
+  <div class="sidebar__secondary">
+    <div class="sidebar__banner">
+      <span>Volunteering</span>
+    </div>
+    <ul class="sidebar__links">
+      <li class="sidebar__link"><a href="https://www.meetup.com/Women-Who-Code-DC/">Women Who Code DC</a></li>
+      <li class="sidebar__link">Pride Tech DC</li>
+    </ul>
+  </div>
+  <div class="blog-links">
+    <div class="sidebar__banner">
+      <span>Blog Posts</span>
+    </div>
+    <ul class="sidebar__links sidebar__links--blog">
+      {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+          {% if post.category %}
+            <span>#{{ post.category }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+  </ul>
+</aside>

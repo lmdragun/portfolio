@@ -4,6 +4,7 @@
   background-color: $grey-light;
   width: 200px;
   height: 100%;
+  min-height: 100%;
   display: none;
   visibility: hidden;
   padding-top: $space-sex;
@@ -11,10 +12,6 @@
   @include desktop {
     display: inline-block;
     visibility: visible;
-  }
-
-  ul {
-    list-style: none;
   }
 
   a {
@@ -69,6 +66,11 @@
 
   &__links {
     padding-left: $space-quad;
+    list-style: none;
+
+    &--blog {
+      list-style: square;
+    }
   }
 
   &__link {
