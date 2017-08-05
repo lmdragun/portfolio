@@ -20,4 +20,20 @@
       <li class="sidebar__link">Pride Tech DC</li>
     </ul>
   </div>
+  <div class="blog-links">
+    <div class="sidebar__banner">
+      <span>Blog Posts</span>
+    </div>
+    <ul class="sidebar__links sidebar__links--blog">
+      {% for i in (0..5) %}
+        {% if site.posts[i] %}
+          <li>
+            <a href="{{ site.posts[i].url }}">{{ site.posts[i].title }}</a>
+            {% if site.posts[i].category %}
+              <span class="side__links--blog__cat">#{{ site.posts[i].category }}</span>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+  </ul>
 </aside>
