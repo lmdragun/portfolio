@@ -1,9 +1,34 @@
+.blog-list {
+  &__link {
+    font-size: 1.3rem;
+  }
+
+  &__posts {
+    list-style-type: none;
+
+    p {
+      text-indent: $space-double;
+    }
+  }
+}
+
 .blog-post {
   padding: $space;
   border: 2px solid $purple;
 
   @include desktop {
     margin: 10px auto;
-    width: 60%;
+    padding: $space-double;
+    width: 70%;
+  }
+
+  li {
+    margin-bottom: $space;
+  }
+}
+
+.highlight {
+  pre {
+    overflow-y: auto;
   }
 }

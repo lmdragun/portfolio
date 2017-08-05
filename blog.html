@@ -4,11 +4,10 @@ title: Blog
 ---
 <div class="blog-list">
   <h1 class="blog-list__title">Blog Posts</h1>
-  <ul>
+  <ul class="blog-list__posts">
     {% for post in site.posts %}
       <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <p>{{ post.date | date: '%B %d, %Y' }}</p>
+        <a href="{{ post.url }}" class="blog-list__link">{{ post.title }},</a> {{ post.date | date: '%B %d, %Y' }}
         <p>{{ post.summary }}</p>
       </li>
     {% endfor %}
