@@ -1,0 +1,141 @@
+---
+layout: blog
+title:  "Following, Friending, and Lending: Self-Referential Associations with Rails"
+date:   2015-05-29 10:15:20 -0400
+category: rails
+summary: An example of how to do self-referential associations with Rails.
+---
+<div class="blog-post">
+  <h1 class="blog-title">Following, Friending, and Lending: Self-Referential Associations with Rails</h1>
+  <h3>Copied from its original on lindsey.international</h3>
+  <p>Self-Referential Associations happen when you connect a table back into itself in Active Record. This is commonly found in a Following function, where one User follows another. As a new Rails developer, the first time I tried these was somewhat daunting, but I managed to pull off both Following and Lending in my app. I used a helpful Rails Cast and various Google searches to figure this out.</p>
+
+  <p>This post assumes that you have already setup authentication in your app and have some way of referencing the logged in user (referred to as “current_user”). I have my Solution and a Starter in this github repo, both have authentication that only requires the username to login.</p>
+
+  <p>Start by thinking about what your associations–what are you connecting? For basic Following (in the manner of Twitter’s following feature), you are just connecting two users. Therefore, you need a join table with has_many through in your model.</p>
+
+  <p>Setup the join table:</p>
+
+  <p>Here you reference one user, but then need a way to reference a second user without interference. In this case, I use “followed” to refer to the other user–they’re the ones being followed.
+  </p>
+  {% highlight ruby %}
+  t.integer :user_id
+  t.integer :followed_id
+  {% endhighlight %}
+  <p>You do not need to touch the Users table, since we’re using a join table. Then migrate this new table to add it to your database.</p>
+  <p>Now that you have the table, you should set up the route:</p>
+  {% highlight ruby %}
+  resources :follows
+  {% endhighlight %}
+  <p>
+    That’s it. You can nest it with users if you’d like, and then change the rest of the code to suit.
+  </p>
+  <p>
+    Next setup the Follow model. This is where we show that the “followed” is actually a User:
+  </p>
+  {% highlight ruby %}
+  belongs_to :user
+  belongs_to :followed, :class_name => “User”
+  {% endhighlight %}
+  <p>
+    In the User model, we also need to setup associations. Since we have two users in everything we do, we need two sets of references here. The user has many follows (for the follow table) and has many followed through follows (they can follow many users). But they also can be followed. Here I used “inverse” to show the second relationship, which seemed to be the way others online were solving this issue.
+  </p>
+  {% highlight ruby %}
+  has_many :follows
+  has_many :followed, :through => :follows
+  has_many :inverse_follows, :class_name => “Follow”, :foreign_key => “followed_id”
+  has_many :followers, :through => :inverse_follows, :source => :user
+  {% endhighlight %}
+  <p>
+    So: A user has many entries in the follows table, which connect them to the people they followed. A user also has many entries in the follows table of people who are their followers.
+  </p>
+  <p>
+    This is a good time to setup a Follows controller, as well, with an empty class.
+  </p>
+  <p>
+    Since this is a self-referential association with Users, I put the actual method for following in the Users model.
+  </p>
+  {% highlight ruby %}
+  def follow(other_user)
+    if self.followed.include?(other_user)
+      return false
+    else
+      self.follows.create(:followed_id => other_user.id)
+      return true
+    end
+  end
+  {% endhighlight %}
+  <p>
+    This is a method called “follow” which takes in other_user (a variable I’ll be defining in the controller) and after checking to make sure they’re not already following that person, I create an entry in the follows table referencing the user the current user wants to follow.
+  </p>
+  <p>
+    Now I go back to the Follows controller and set up the create method. We don’t need “new” because we’re not using any views.
+  </p>
+  {% highlight ruby %}
+  def create
+    @user = User.find(params[:followed_id])
+    if current_user.follow(@user)
+      flash[:notice] = “Followed user.”
+      redirect_to current_user
+    else
+      flash[:error] = “Unable to follow user.”
+      redirect_to current_user
+    end
+  end
+  {% endhighlight %}
+  <p>
+    This takes the params and sends it to the follow method (@user becomes other_user). If the follow method works (if the user isn’t already following them), they are given an announcement saying they followed them and then redirected to their own page. If it doesn’t work, they are given an error and redirected.
+  </p>
+  <p>
+    Since people should be able to unfollow, as well, you set up a destroy:
+  </p>
+  {% highlight ruby %}
+  def destroy
+    @follow = current_user.follows.find(params[:id])
+    @follow.destroy
+    flash[:notice] = “Stopped following user.”
+    redirect_to current_user
+  end
+  {% endhighlight %}
+  <p>
+    Basically, you’re just destroying the entry in the follows table associated with that id.
+  </p>
+  <p>
+    Now for another difficult part, the views. This is where the links will go that allow users to follow each other. This can be hard to visualize how it’s supposed to happen, if you’re not using a specific follow view.
+  </p>
+  <p>
+    In the Users index, I put a list of the Users:
+  </p>
+  {% highlight ruby %}
+  <h1>Users:</h1>
+  <% for user in @users %>
+    <p>
+    <strong><%= link_to user.username, user_path(user) %> </strong>
+    <small><%= link_to “Follow”, follows_path(:followed_id => user), :method => :post %></small>
+    </p>
+  <% end %>
+  {% endhighlight %}
+  <p>
+    In the Users show page, I put a list of each user’s followeds and followers.
+  </p>
+  {% highlight ruby %}
+  <h2>User: <%= @user.username %></h2>
+  <h3>Followers:</h3>
+  <ul>
+    <% for user in @user.followers %>
+      <li><%=h user.username %></li>
+    <% end %>
+  </ul>
+  <h3>Following:</h3>
+  <ul>
+    <% for follow in @user.follows %>
+      <li>
+        <p><%=h follow.followed.username %>(<%= link_to “remove”, follow, :method => :delete %>)</p>
+      </li>
+    <% end %>
+  </ul>
+  {% endhighlight %}
+  <p>
+    Other things you can do: Create friendships, where relationships have to be mutual to show up, or create lending features, where you connect another model and have one user lend something they own to another. For an example, check out what I did with Loans in <a href="http://github.com/lmdragun/comicbooklibrary">this project</a>.
+  </p>
+</div>
