@@ -7,7 +7,7 @@
     <ul class="sidebar__links">
       <li class="sidebar__link"><a href="{{base}}/portfolio.html">Portfolio</a></li>
       <li class="sidebar__link"><a href="{{base}}/speaking.html">Speaking</a></li>
-      <li class="sidebar__link"><a href="http://lindsey.international">Old Blog</a></li>
+      <li class="sidebar__link"><a href="{{base}}/blog.html">Blog</a></li>
       <li class="sidebar__link"><a href="https://www.linkedin.com/in/ldragun">LinkedIn</a></li>
     </ul>
   </div>
@@ -25,13 +25,15 @@
       <span>Blog Posts</span>
     </div>
     <ul class="sidebar__links sidebar__links--blog">
-      {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          {% if post.category %}
-            <span>#{{ post.category }}</span>
-          {% endif %}
-        </li>
+      {% for i in (0..5) %}
+        {% if site.posts[i] %}
+          <li>
+            <a href="{{ site.posts[i].url }}">{{ site.posts[i].title }}</a>
+            {% if site.posts[i].category %}
+              <span class="side__links--blog__cat">#{{ site.posts[i].category }}</span>
+            {% endif %}
+          </li>
+        {% endif %}
       {% endfor %}
   </ul>
 </aside>
