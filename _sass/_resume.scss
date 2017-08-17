@@ -27,7 +27,9 @@
     h3 {
       font-size: 1.2rem;
       border-bottom: 1px solid $purple-light;
-      width: 50%;
+      @include desktop {
+        width: 60%;
+      }
     }
 
     h4 {
@@ -41,7 +43,7 @@
       font-size: .9rem;
     }
 
-    .contact {
+    .resume-contact {
       li {
         display: inline-block;
         padding: 0 $space-quad $space-quad 0;
@@ -51,6 +53,10 @@
     .job__bullets {
       margin: $space-half;
       list-style-type: square;
+
+      @include desktop {
+        width: 70%;
+      }
     }
   }
 
