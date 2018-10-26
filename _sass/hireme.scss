@@ -1,0 +1,40 @@
+.hireme-link {
+  margin: $space-quad 0 0 40%;
+  a {
+    font-size: $text-md;
+    color: $purple;
+  }
+}
+
+.single-container {
+  padding: $space-double;
+}
+
+.hireme {
+  padding-bottom: $space;
+
+  @include tablet {
+    width: 80%;
+    padding: 0 0 $space-double $space-quad;
+  }
+
+  &--title {
+    font-size: $text-lg;
+    color: $purple-light;
+  }
+
+  &--subtitle {
+    font-size: 1rem;
+    color: $purple-dark;
+  }
+
+  &--heading {
+    font-size: $text-md;
+    color: $purple;
+  }
+
+  &--para {
+    text-indent: $space-double;
+    font-size: 1.1rem;
+  }
+}
