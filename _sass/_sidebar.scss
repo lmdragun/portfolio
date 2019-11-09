@@ -1,17 +1,18 @@
 
 .sidebar {
-  color: $purple;
-  background-color: $grey-light;
-  width: 200px;
-  height: 100%;
-  min-height: 100%;
-  display: none;
-  visibility: hidden;
-  padding-top: $space-sex;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: $space;
 
-  @include desktop {
+  @include tablet {
     display: inline-block;
-    visibility: visible;
+    color: $purple;
+    background-color: $grey-light;
+    width: 200px;
+    height: 100%;
+    min-height: 100%;
+    padding-top: $space-quad;
   }
 
   a {
@@ -28,45 +29,54 @@
   }
 
   &__banner {
-    position: relative;
-    // padding: 10px;
-    height: 30px;
-    color: $white;
-    background-color: $purple-light;
+    color: $purple;
     font-size: $text-md;
-    font-weight: $bold;
-    margin: 20px -30px 20px $space;
-    z-index: 1;
-    width: 206px;
 
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      background-color: $grey-light;
-      width: 15px;
-      height: 15px;
-      top: 100%;
-      right: 15px;
-    }
+    @include tablet {
+      position: relative;
+      height: 30px;
+      color: $white;
+      background-color: $purple-light;
+      font-size: $text-md;
+      font-weight: $bold;
+      margin: 20px -30px 20px $space;
+      z-index: 1;
+      width: 206px;
 
-    &:after {
-      content: '';
-      width: 0;
-      border: 15px solid;
-      border-color: $black transparent transparent transparent;
-      display: block;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      z-index: -1;
-
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: $grey-light;
+        width: 15px;
+        height: 15px;
+        top: 100%;
+        right: 15px;
+      }
+      &:after {
+        content: '';
+        width: 0;
+        border: 15px solid;
+        border-color: $black transparent transparent transparent;
+        display: block;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: -1;
+      }
     }
   }
 
   &__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     padding-left: $space-quad;
     list-style: none;
+
+    @include tablet {
+      display: block;
+    }
 
     &--blog {
       list-style: square;
@@ -79,7 +89,13 @@
   }
 
   &__link {
-    font-size: .9rem;
+    padding-right: $space-triple;
     font-weight: $semi-bold;
+
+    @include tablet {
+      padding-right: 0;
+      font-size: .9rem;
+    }
+
   }
 }

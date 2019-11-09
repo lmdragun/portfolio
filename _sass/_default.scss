@@ -1,8 +1,24 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  margin-top: $space-triple;
+
+  @include tablet {
+    flex-direction: row;
+    margin-right: $space-quad;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
+
+  @include tablet {
+    height: 100%;
+    flex-grow: 2;
+  }
 
   &__content {
     width: 100%;
