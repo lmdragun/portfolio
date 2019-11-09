@@ -27,7 +27,7 @@ sass:
 markdown: kramdown
 kramdown:
   input: GFM
-gems:
+plugins:
   - jekyll-feed
   - jekyll-relative-links
 include: ['_pages']
